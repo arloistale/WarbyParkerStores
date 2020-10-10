@@ -2,15 +2,15 @@
 //  ContentView.swift
 //  WarbyParkerStores
 //
-//  Created by Jonathan Lu on 10/8/20.
-//  Copyright © 2020 Jon. All rights reserved.
+//  Created by Jonathan Lu on 10/10/20.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        Text("Hello, world!")
+            .padding()
     }
 }
 
