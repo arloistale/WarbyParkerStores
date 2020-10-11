@@ -13,6 +13,12 @@
 		221EE8AB253172ED005FD9FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 221EE8AA253172ED005FD9FF /* Preview Assets.xcassets */; };
 		221EE8B6253172ED005FD9FF /* WarbyParkerStoresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221EE8B5253172ED005FD9FF /* WarbyParkerStoresTests.swift */; };
 		221EE8C1253172ED005FD9FF /* WarbyParkerStoresUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221EE8C0253172ED005FD9FF /* WarbyParkerStoresUITests.swift */; };
+		22790C3325329D5C00EC4EC7 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22790C3225329D5C00EC4EC7 /* Menu.swift */; };
+		22790C3B2532A4FF00EC4EC7 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22790C3A2532A4FF00EC4EC7 /* Order.swift */; };
+		22790C402532A79400EC4EC7 /* menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 22790C3F2532A79400EC4EC7 /* menu.json */; };
+		22790C452532A86A00EC4EC7 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22790C442532A86A00EC4EC7 /* Helper.swift */; };
+		22790C522532AB7300EC4EC7 /* MenuItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22790C512532AB7300EC4EC7 /* MenuItemRow.swift */; };
+		22790C5D2532B39500EC4EC7 /* MenuItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22790C5C2532B39500EC4EC7 /* MenuItemDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,12 @@
 		221EE8BC253172ED005FD9FF /* WarbyParkerStoresUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WarbyParkerStoresUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		221EE8C0253172ED005FD9FF /* WarbyParkerStoresUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarbyParkerStoresUITests.swift; sourceTree = "<group>"; };
 		221EE8C2253172ED005FD9FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22790C3225329D5C00EC4EC7 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		22790C3A2532A4FF00EC4EC7 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		22790C3F2532A79400EC4EC7 /* menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu.json; sourceTree = "<group>"; };
+		22790C442532A86A00EC4EC7 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		22790C512532AB7300EC4EC7 /* MenuItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemRow.swift; sourceTree = "<group>"; };
+		22790C5C2532B39500EC4EC7 /* MenuItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +109,15 @@
 			children = (
 				221EE8A3253172EC005FD9FF /* WarbyParkerStoresApp.swift */,
 				221EE8A5253172EC005FD9FF /* ContentView.swift */,
+				22790C512532AB7300EC4EC7 /* MenuItemRow.swift */,
+				22790C5C2532B39500EC4EC7 /* MenuItemDetail.swift */,
 				221EE8A7253172ED005FD9FF /* Assets.xcassets */,
 				221EE8AC253172ED005FD9FF /* Info.plist */,
 				221EE8A9253172ED005FD9FF /* Preview Content */,
+				22790C3A2532A4FF00EC4EC7 /* Order.swift */,
+				22790C3225329D5C00EC4EC7 /* Menu.swift */,
+				22790C3F2532A79400EC4EC7 /* menu.json */,
+				22790C442532A86A00EC4EC7 /* Helper.swift */,
 			);
 			path = WarbyParkerStores;
 			sourceTree = "<group>";
@@ -233,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22790C402532A79400EC4EC7 /* menu.json in Resources */,
 				221EE8AB253172ED005FD9FF /* Preview Assets.xcassets in Resources */,
 				221EE8A8253172ED005FD9FF /* Assets.xcassets in Resources */,
 			);
@@ -259,7 +278,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22790C3325329D5C00EC4EC7 /* Menu.swift in Sources */,
 				221EE8A6253172EC005FD9FF /* ContentView.swift in Sources */,
+				22790C452532A86A00EC4EC7 /* Helper.swift in Sources */,
+				22790C522532AB7300EC4EC7 /* MenuItemRow.swift in Sources */,
+				22790C3B2532A4FF00EC4EC7 /* Order.swift in Sources */,
+				22790C5D2532B39500EC4EC7 /* MenuItemDetail.swift in Sources */,
 				221EE8A4253172EC005FD9FF /* WarbyParkerStoresApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
