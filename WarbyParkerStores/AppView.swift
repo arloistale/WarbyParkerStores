@@ -12,10 +12,6 @@ struct AppView: View {
     
     var body: some View {
         StoreLocationsView(viewModel: storeLocationsViewModel)
-            .tabItem {
-                Image(systemName: "list.dash")
-                Text("Menu")
-            }
     }
 }
 
