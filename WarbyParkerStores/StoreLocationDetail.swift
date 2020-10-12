@@ -6,22 +6,32 @@
 //
 
 import SwiftUI
+import KingfisherSwiftUI
 
 struct StoreLocationDetail: View {
     var location: StoreLocation
     
     var body: some View {
         VStack {
-            /*
             ZStack(alignment: .bottomTrailing) {
-                Image(item.mainImage)
-                Text("Photo: \(item.photoCredit)")
+                KFImage(URL(string: "https:\(location.cmsContent.smallHeroImage)"))
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                
+                Text("Offers Eye Exams: \(String(location.offersEyeExams))")
                     .padding(4)
                     .background(Color.black)
                     .font(.caption)
                     .foregroundColor(.white)
                     .offset(x: -5, y: -5)
-            }*/
+            }
+            
+            Text("\(location.address.streetAddress)\n\(location.address.locality)")
+                .padding()
+                .font(.body)
+            
+            Text(location.cmsContent.description)
+                .padding()
             
             Spacer()
         }

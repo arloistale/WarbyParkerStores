@@ -13,11 +13,14 @@ struct StoreLocationsData: Codable {
 
 struct StoreLocation: Codable, Identifiable {
     let id = UUID()
+    
     var name: String
     var address: Address
+    var offersEyeExams: Bool
+    var cmsContent: CmsContent
     
     #if DEBUG
-    static let example = StoreLocation(name: "Blockbuster", address: Address(streetAddress: "500 America Street", locality: "Freedom", regionCode: "TX", postalCode: "10000"))
+    static let example = StoreLocation(name: "Blockbuster", address: Address(streetAddress: "500 America Street", locality: "Freedom", regionCode: "TX", postalCode: "10000"), offersEyeExams: true, cmsContent: CmsContent(cardPhoto: "dunno", description: "Not a lot", heroImage: []))
     #endif
 }
 
@@ -26,11 +29,19 @@ struct Address: Codable {
     var locality: String
     var regionCode: String
     var postalCode: String
+}
+
+struct CmsContent: Codable {
+    var cardPhoto: String
+    var description: String
+    var heroImage: [ImageInfo]
     
-    enum CodingKeys: String, CodingKey {
-            case streetAddress = "street_address"
-            case locality
-            case regionCode = "region_code"
-            case postalCode = "postal_code"
-        }
+    var smallHeroImage: String {
+        heroImage.first(where: {$0.size == "small"})?.image ?? ""
+    }
+}
+
+struct ImageInfo: Codable {
+    var image: String?
+    var size: String?
 }

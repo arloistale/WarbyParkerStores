@@ -10,8 +10,6 @@ import Combine
 
 class StoreLocationsViewModelTests: XCTestCase {
     
-    static let mockData = StoreLocationsData(locations: [StoreLocation(name: "Test", address: Address(streetAddress: "Test", locality: "Test", regionCode: "test", postalCode: "test"))])
-
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -40,7 +38,7 @@ class StoreLocationsViewModelTests: XCTestCase {
     }
 
     func testSuccess() throws {
-        let repository = StoreLocationsRepositoryMock(mockPublisher: Just(StoreLocationsViewModelTests.mockData).setFailureType(to: Error.self).eraseToAnyPublisher())
+        let repository = StoreLocationsRepositoryMock(mockPublisher: Just(StoreLocation.example).setFailureType(to: Error.self).eraseToAnyPublisher())
         let viewModel = StoreLocationsViewModel(repository: repository)
         
         viewModel.load()

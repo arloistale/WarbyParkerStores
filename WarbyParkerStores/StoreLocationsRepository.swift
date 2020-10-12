@@ -21,10 +21,12 @@ class StoreLocationsRepositoryImpl: StoreLocationsRepository {
         }
         
         let urlRequest = URLRequest(url: url)
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
         
         return URLSession.shared.dataTaskPublisher(for: urlRequest)
             .map(\.data)
-            .decode(type: StoreLocationsData.self, decoder: JSONDecoder())
+            .decode(type: StoreLocationsData.self, decoder: decoder)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }

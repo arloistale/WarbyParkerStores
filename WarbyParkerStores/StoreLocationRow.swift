@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import KingfisherSwiftUI
 
 struct StoreLocationRow: View {
     static let colors: [String: Color] = ["D": .purple, "G": .black, "N": .red, "S": .blue, "V": .green]
@@ -15,28 +16,26 @@ struct StoreLocationRow: View {
     var body: some View {
         NavigationLink(destination: StoreLocationDetail(location: location)) {
             HStack {
-                //Image(location.thumbnailImage)
-                  //  .clipShape(Circle())
+                KFImage(URL(string: "https:\(location.cmsContent.cardPhoto)"))
+                    .cancelOnDisappear(true)
+                    .placeholder {
+                        Image(systemName: "arrow.2.circlepath.circle")
+                            .font(.largeTitle)
+                            .opacity(0.3)
+                    }
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 100)
                 
                 VStack(alignment: .leading) {
                     Text(location.name)
                         .font(.headline)
                     
-                    //Text("$\(location.price)")
+                    Text("\(location.address.streetAddress)\n\(location.address.locality)")
+                        .font(.caption)
                 }
                 
                 Spacer()
-                
-                /*
-                ForEach(item.restrictions, id: \.self) { restriction in
-                    Text(restriction)
-                        .font(.caption)
-                        .fontWeight(.black)
-                        .padding(5)
-                        .background(Self.colors[restriction, default: .black])
-                        .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                        .foregroundColor(.white)
-                }*/
             }
         }
     }
