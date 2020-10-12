@@ -9,29 +9,48 @@ import SwiftUI
 import KingfisherSwiftUI
 
 struct StoreLocationDetail: View {
+    let heroImageFrameHeight: CGFloat = 200
+    let topSpacerHeight: CGFloat = 50
+    
     var location: StoreLocation
     
     var body: some View {
         VStack {
-            ZStack(alignment: .bottomTrailing) {
+            Spacer()
+                .frame(height: topSpacerHeight)
+            
+            ZStack(alignment: .bottom) {
                 KFImage(URL(string: "https:\(location.cmsContent.smallHeroImage)"))
+                    .cancelOnDisappear(true)
+                    .placeholder {
+                        Rectangle()
+                            .fill(Color("PlaceholderStamp"))
+                    }
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: heroImageFrameHeight)
+                    .clipShape(Circle())
+                    .clipped()
+                    .padding(.top)
                 
-                Text("Offers Eye Exams: \(String(location.offersEyeExams))")
-                    .padding(4)
-                    .background(Color.black)
-                    .font(.caption)
-                    .foregroundColor(.white)
-                    .offset(x: -5, y: -5)
+                if location.offersEyeExams {
+                    Text("Offers Eye Exams!")
+                        .bold()
+                        .font(.caption)
+                        .foregroundColor(.white)
+                        .padding(4)
+                        .background(Color("WholesomeBlue"))
+                        .cornerRadius(10)
+                }
             }
             
             Text("\(location.address.streetAddress)\n\(location.address.locality)")
+                .font(.headline)
                 .padding()
-                .font(.body)
             
             Text(location.cmsContent.description)
-                .padding()
+                .font(.body)
+                .padding(.horizontal)
             
             Spacer()
         }

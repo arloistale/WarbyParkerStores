@@ -9,7 +9,7 @@ import SwiftUI
 import KingfisherSwiftUI
 
 struct StoreLocationRow: View {
-    static let colors: [String: Color] = ["D": .purple, "G": .black, "N": .red, "S": .blue, "V": .green]
+    let cardPhotoFrameWidth: CGFloat = 100
 
     var location: StoreLocation
     
@@ -19,24 +19,30 @@ struct StoreLocationRow: View {
                 KFImage(URL(string: "https:\(location.cmsContent.cardPhoto)"))
                     .cancelOnDisappear(true)
                     .placeholder {
-                        Image(systemName: "arrow.2.circlepath.circle")
-                            .font(.largeTitle)
-                            .opacity(0.3)
+                        Rectangle()
+                            .fill(Color("PlaceholderStamp"))
                     }
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: 100)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: cardPhotoFrameWidth, height: cardPhotoFrameWidth)
+                    .clipped()
                 
                 VStack(alignment: .leading) {
                     Text(location.name)
                         .font(.headline)
+                        .foregroundColor(Color.white)
                     
-                    Text("\(location.address.streetAddress)\n\(location.address.locality)")
+                    Text("\(location.address.streetAddress)\n\(location.address.locality), \(location.address.regionCode) \(location.address.postalCode)")
                         .font(.caption)
+                        .foregroundColor(Color.white)
                 }
                 
                 Spacer()
             }
+            .buttonStyle(PlainButtonStyle())
+            .background(Color("WholesomeBlue"))
+            .cornerRadius(5)
+            .padding(.horizontal)
         }
     }
 }

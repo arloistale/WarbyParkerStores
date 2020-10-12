@@ -6,9 +6,16 @@
 //
 
 import SwiftUI
+import class Kingfisher.ImageCache
 
 @main
 struct WarbyParkerStoresApp: App {
+    init() {
+        let cache = ImageCache.default
+        cache.clearMemoryCache()
+        cache.clearDiskCache { print("Done") }
+    }
+    
     var body: some Scene {
         WindowGroup {
             AppView()

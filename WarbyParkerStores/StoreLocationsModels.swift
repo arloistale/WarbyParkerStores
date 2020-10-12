@@ -13,7 +13,7 @@ struct StoreLocationsData: Codable {
 
 struct StoreLocation: Codable, Identifiable {
     let id = UUID()
-    
+
     var name: String
     var address: Address
     var offersEyeExams: Bool
@@ -36,6 +36,7 @@ struct CmsContent: Codable {
     var description: String
     var heroImage: [ImageInfo]
     
+    // Searches for the "small" hero image if it exists
     var smallHeroImage: String {
         heroImage.first(where: {$0.size == "small"})?.image ?? ""
     }
