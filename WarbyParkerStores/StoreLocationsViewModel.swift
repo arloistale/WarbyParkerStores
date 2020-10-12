@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class StoreLocationsViewModel: ObservableObject {
     let repository: StoreLocationsRepository
@@ -13,15 +14,28 @@ class StoreLocationsViewModel: ObservableObject {
     @Published var data = StoreLocationsData(locations: [])
     @Published var isLoading = false
     
+    private var subscriptions = Set<AnyCancellable>()
+    
     init(repository: StoreLocationsRepository) {
         self.repository = repository
     }
     
     func load() {
         isLoading = true
-        repository.fetchData { data in
-            self.isLoading = false
-            self.data = data
-        }
+        
+        repository.fetchData()
+            .sink(receiveCompletion: { completion in
+                self.isLoading = false
+
+                switch completion {
+                case let .failure(error):
+                    print("Couldn't get store locations: \(error)")
+                case .finished:
+                    print("Finished getting store locations!")
+                }
+            }, receiveValue: { data in
+                self.data = data
+            })
+            .store(in: &subscriptions)
     }
 }
