@@ -24,6 +24,7 @@
 		22881BF02533F9370051D0DA /* StoreLocationsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22790C3225329D5C00EC4EC7 /* StoreLocationsModels.swift */; };
 		22881BF42533FAA00051D0DA /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22790C442532A86A00EC4EC7 /* Helper.swift */; };
 		22881BFD25343FFE0051D0DA /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 22881BFC25343FFE0051D0DA /* KingfisherSwiftUI */; };
+		22881C022534529E0051D0DA /* StoreLocationsModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22881C012534529E0051D0DA /* StoreLocationsModelsTests.swift */; };
 		22CF27232533BBBF00FA1966 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CF27222533BBBF00FA1966 /* AppView.swift */; };
 		22CF27342533D0EA00FA1966 /* StoreLocationsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CF27332533D0EA00FA1966 /* StoreLocationsRepository.swift */; };
 		22CF273C2533D11300FA1966 /* StoreLocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CF273B2533D11300FA1966 /* StoreLocationsViewModel.swift */; };
@@ -65,6 +66,7 @@
 		22790C512532AB7300EC4EC7 /* StoreLocationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocationRow.swift; sourceTree = "<group>"; };
 		22790C5C2532B39500EC4EC7 /* StoreLocationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocationDetail.swift; sourceTree = "<group>"; };
 		22881BE32533F8EC0051D0DA /* StoreLocationsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocationsViewModelTests.swift; sourceTree = "<group>"; };
+		22881C012534529E0051D0DA /* StoreLocationsModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocationsModelsTests.swift; sourceTree = "<group>"; };
 		22CF27222533BBBF00FA1966 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		22CF27332533D0EA00FA1966 /* StoreLocationsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocationsRepository.swift; sourceTree = "<group>"; };
 		22CF273B2533D11300FA1966 /* StoreLocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocationsViewModel.swift; sourceTree = "<group>"; };
@@ -148,8 +150,9 @@
 			isa = PBXGroup;
 			children = (
 				221EE8B5253172ED005FD9FF /* WarbyParkerStoresTests.swift */,
-				221EE8B7253172ED005FD9FF /* Info.plist */,
 				22881BE32533F8EC0051D0DA /* StoreLocationsViewModelTests.swift */,
+				22881C012534529E0051D0DA /* StoreLocationsModelsTests.swift */,
+				221EE8B7253172ED005FD9FF /* Info.plist */,
 			);
 			path = WarbyParkerStoresTests;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22881C022534529E0051D0DA /* StoreLocationsModelsTests.swift in Sources */,
 				221EE8B6253172ED005FD9FF /* WarbyParkerStoresTests.swift in Sources */,
 				22881BE82533F92E0051D0DA /* StoreLocationsViewModel.swift in Sources */,
 				22881BEC2533F9320051D0DA /* StoreLocationsRepository.swift in Sources */,
