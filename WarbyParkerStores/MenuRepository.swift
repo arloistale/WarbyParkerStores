@@ -7,9 +7,23 @@
 
 import Foundation
 
-class MenuRepository {
-    func fetchMenu() -> MenuData {
-        let sections = Bundle.main.decode([MenuSection].self, from: "menu.json")
-        return MenuData(sections: sections)
+protocol StoreLocationsRepository {
+    func fetchData(completion: @escaping (MenuData) -> Void)
+}
+
+class MenuRepositoryImpl: StoreLocationsRepository {
+    func fetchData(completion: @escaping (MenuData) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            let sections = Bundle.main.decode([MenuSection].self, from: "menu.json")
+            completion(MenuData(sections: sections))
+        }
+    }
+}
+
+struct MenuRepositoryMock: StoreLocationsRepository {
+    let mockData: MenuData
+    
+    func fetchData(completion: @escaping (MenuData) -> Void) {
+        completion(mockData)
     }
 }
