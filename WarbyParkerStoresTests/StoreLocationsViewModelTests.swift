@@ -38,7 +38,7 @@ class StoreLocationsViewModelTests: XCTestCase {
     }
 
     func testSuccess() throws {
-        let repository = StoreLocationsRepositoryMock(mockPublisher: Just(StoreLocation.example).setFailureType(to: Error.self).eraseToAnyPublisher())
+        let repository = StoreLocationsRepositoryMock(mockPublisher: Just(StoreLocationsData(locations: [StoreLocation.example])).setFailureType(to: Error.self).eraseToAnyPublisher())
         let viewModel = StoreLocationsViewModel(repository: repository)
         
         viewModel.load()
