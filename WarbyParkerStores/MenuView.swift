@@ -7,28 +7,32 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    let menu = Bundle.main.decode([MenuSection].self, from: "menu.json")
+struct MenuView: View {
+    @ObservedObject var menuViewModel: MenuViewModel
+    var order: Order
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(menu) { section in
+                ForEach(menuViewModel.data.sections) { section in
                     Section(header: Text(section.name)) {
                         ForEach(section.items) { item in
-                            MenuItemRow(item: item)
+                            MenuItemRow(order: order, item: item)
                         }
                     }
                 }
             }
             .navigationBarTitle("Menu")
             .listStyle(GroupedListStyle())
+            .onAppear {
+                menuViewModel.load()
+            }
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MenuView(menuViewModel: MenuViewModel(repository:  MenuRepository()), order: Order())
     }
 }

@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct WarbyParkerStoresApp: App {
-    var order = Order()
+    var menuViewModel: MenuViewModel = MenuViewModel(repository: MenuRepository())
+    var order: Order = Order()
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(order)
+            AppView(menuViewModel: menuViewModel, order: order)
         }
     }
 }

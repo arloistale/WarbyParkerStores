@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct MenuData: Codable {
+    var sections: [MenuSection]
+}
+
 struct MenuSection: Codable, Identifiable {
     var id: UUID
     var name: String

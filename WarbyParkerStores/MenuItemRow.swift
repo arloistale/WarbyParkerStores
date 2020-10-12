@@ -10,14 +10,14 @@ import SwiftUI
 struct MenuItemRow: View {
     static let colors: [String: Color] = ["D": .purple, "G": .black, "N": .red, "S": .blue, "V": .green]
     
+    var order: Order
     var item: MenuItem
     
     var body: some View {
-        NavigationLink(destination: MenuItemDetail(item: item)) {
+        NavigationLink(destination: MenuItemDetail(order: order, item: item)) {
             HStack {
                 Image(item.thumbnailImage)
                     .clipShape(Circle())
-                    //.overlay(Circle().stroke(Color.gray, lineWidth: 2))
                 
                 VStack(alignment: .leading) {
                     Text(item.name)
@@ -37,6 +37,8 @@ struct MenuItemRow: View {
                         .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                         .foregroundColor(.white)
                 }
+                
+                Text("$\(order.total)")
             }
         }
     }
@@ -44,6 +46,6 @@ struct MenuItemRow: View {
 
 struct ItemRow_Previews: PreviewProvider {
     static var previews: some View {
-        MenuItemRow(item: MenuItem.example)
+        MenuItemRow(order: Order(), item: MenuItem.example)
     }
 }

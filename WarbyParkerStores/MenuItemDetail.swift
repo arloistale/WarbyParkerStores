@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MenuItemDetail: View {
+    var order: Order
+    
     var item: MenuItem
     
     var body: some View {
@@ -25,6 +27,12 @@ struct MenuItemDetail: View {
             Text(item.description)
                 .padding()
             
+            Text("$\(order.total)")
+            
+            Button("Add to Cart") {
+                self.order.add(item: item)
+            }.font(.headline)
+            
             Spacer()
         }
         .navigationBarTitle(item.name, displayMode: .inline)
@@ -34,7 +42,7 @@ struct MenuItemDetail: View {
 struct MenuItemDetail_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            MenuItemDetail(item: MenuItem.example)
+            MenuItemDetail(order: Order(), item: MenuItem.example)
         }
     }
 }
