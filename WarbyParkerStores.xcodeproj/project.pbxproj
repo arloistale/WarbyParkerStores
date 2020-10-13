@@ -14,6 +14,7 @@
 		221EE8B6253172ED005FD9FF /* WarbyParkerStoresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221EE8B5253172ED005FD9FF /* WarbyParkerStoresTests.swift */; };
 		221EE8C1253172ED005FD9FF /* WarbyParkerStoresUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221EE8C0253172ED005FD9FF /* WarbyParkerStoresUITests.swift */; };
 		225600C025358D3300BF905F /* LeadingBarRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225600BF25358D3300BF905F /* LeadingBarRectangle.swift */; };
+		22560107253593F000BF905F /* TestMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22560106253593F000BF905F /* TestMocks.swift */; };
 		22790C3325329D5C00EC4EC7 /* StoreLocationsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22790C3225329D5C00EC4EC7 /* StoreLocationsModels.swift */; };
 		22790C402532A79400EC4EC7 /* TestData.json in Resources */ = {isa = PBXBuildFile; fileRef = 22790C3F2532A79400EC4EC7 /* TestData.json */; };
 		22790C522532AB7300EC4EC7 /* StoreLocationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22790C512532AB7300EC4EC7 /* StoreLocationRow.swift */; };
@@ -60,6 +61,7 @@
 		221EE8C0253172ED005FD9FF /* WarbyParkerStoresUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarbyParkerStoresUITests.swift; sourceTree = "<group>"; };
 		221EE8C2253172ED005FD9FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		225600BF25358D3300BF905F /* LeadingBarRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingBarRectangle.swift; sourceTree = "<group>"; };
+		22560106253593F000BF905F /* TestMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMocks.swift; sourceTree = "<group>"; };
 		22790C3225329D5C00EC4EC7 /* StoreLocationsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocationsModels.swift; sourceTree = "<group>"; };
 		22790C3F2532A79400EC4EC7 /* TestData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestData.json; sourceTree = "<group>"; };
 		22790C512532AB7300EC4EC7 /* StoreLocationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocationRow.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				221EE8B5253172ED005FD9FF /* WarbyParkerStoresTests.swift */,
 				22881BE32533F8EC0051D0DA /* StoreLocationsViewModelTests.swift */,
 				22881C012534529E0051D0DA /* StoreLocationsModelsTests.swift */,
+				22560106253593F000BF905F /* TestMocks.swift */,
 				221EE8B7253172ED005FD9FF /* Info.plist */,
 			);
 			path = WarbyParkerStoresTests;
@@ -323,6 +326,7 @@
 				22881BEC2533F9320051D0DA /* StoreLocationsRepository.swift in Sources */,
 				22881BF02533F9370051D0DA /* StoreLocationsModels.swift in Sources */,
 				22881BE42533F8EC0051D0DA /* StoreLocationsViewModelTests.swift in Sources */,
+				22560107253593F000BF905F /* TestMocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
