@@ -19,9 +19,7 @@ struct StoreLocation: Codable, Identifiable {
     var offersEyeExams: Bool
     var cmsContent: CmsContent
     
-    #if DEBUG
     static let example = StoreLocation(name: "Blockbuster", address: Address(streetAddress: "500 America Street", locality: "Freedom", regionCode: "TX", postalCode: "10000"), offersEyeExams: true, cmsContent: CmsContent(cardPhoto: "dunno", description: "Not a lot", heroImage: []))
-    #endif
 }
 
 struct Address: Codable {

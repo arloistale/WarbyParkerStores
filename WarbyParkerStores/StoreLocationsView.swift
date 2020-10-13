@@ -73,13 +73,3 @@ struct StoreLocationsView: View {
         }
     }
 }
-
-struct StoreLocationsView_Previews: PreviewProvider {
-    static let mockData = StoreLocationsData(locations: [StoreLocation.example, StoreLocation.example, StoreLocation.example])
-    
-    static let mockViewModel = StoreLocationsViewModel(repository:  StoreLocationsRepositoryMock(mockPublisher: Just(mockData).setFailureType(to: Error.self).eraseToAnyPublisher()))
-    
-    static var previews: some View {
-        StoreLocationsView(viewModel: mockViewModel)
-    }
-}

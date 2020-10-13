@@ -71,11 +71,3 @@ struct StoreLocationDetail: View {
         }
     }
 }
-
-struct StoreLocationDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        StoreLocationDetail(location: StoreLocation.example) {
-            
-        }
-    }
-}
