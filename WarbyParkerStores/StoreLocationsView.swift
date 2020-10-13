@@ -31,13 +31,12 @@ struct StoreLocationsView: View {
                 
                 // show the detail view once a store location is clicked
                 if viewModel.shouldShowDetail {
-                    StoreLocationDetail(location: viewModel.locationForDetail!) {
+                    StoreLocationDetail(viewModel: viewModel, location: viewModel.locationForDetail!) {
                         viewModel.hideDetail()
                     }
                 }
             }
         }
-        .transition(.move(edge: .top))
         .onAppear {
             viewModel.load()
             viewModel.showList()

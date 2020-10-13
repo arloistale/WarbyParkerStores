@@ -9,6 +9,9 @@ import SwiftUI
 import KingfisherSwiftUI
 
 struct StoreLocationDetail: View {
+    
+    @ObservedObject var viewModel: StoreLocationsViewModel
+    
     var location: StoreLocation
     var action: () -> Void
     
@@ -65,7 +68,7 @@ struct StoreLocationDetail: View {
         .offset(x: 0, y: contentOffset)
         .onAppear {
             // animate the detail in from the bottom edge
-            withAnimation(.spring(response: 0.25, dampingFraction: 0.77, blendDuration: 100)) {
+            withAnimation(Animation.spring(response: 0.25, dampingFraction: 0.77, blendDuration: 100).delay(viewModel.detailTransitionDelay)) {
                 self.contentOffset = 0
             }
         }
