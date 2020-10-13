@@ -9,9 +9,6 @@ import SwiftUI
 import KingfisherSwiftUI
 
 struct StoreLocationDetail: View {
-    let heroImageFrameHeight: CGFloat = 200
-    let topSpacerHeight: CGFloat = 50
-    
     var location: StoreLocation
     var action: () -> Void
     
@@ -21,7 +18,7 @@ struct StoreLocationDetail: View {
         ZStack {
             VStack {
                 Spacer()
-                    .frame(height: topSpacerHeight)
+                    .frame(height: 50)
                 
                 ZStack(alignment: .bottom) {
                     KFImage(URL(string: "https:\(location.cmsContent.smallHeroImage)"))
@@ -32,7 +29,7 @@ struct StoreLocationDetail: View {
                         }
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(height: heroImageFrameHeight)
+                        .frame(height: 200)
                         .clipShape(Circle())
                     
                     if location.offersEyeExams {
@@ -67,6 +64,7 @@ struct StoreLocationDetail: View {
         }
         .offset(x: 0, y: contentOffset)
         .onAppear {
+            // animate the detail in from the bottom edge
             withAnimation(.spring(response: 0.25, dampingFraction: 0.77, blendDuration: 100)) {
                 self.contentOffset = 0
             }

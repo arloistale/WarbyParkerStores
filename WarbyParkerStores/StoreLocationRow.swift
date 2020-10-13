@@ -11,8 +11,6 @@ import KingfisherSwiftUI
 struct StoreLocationRow: View {
     static let maskFillDuration: Double = 1
     
-    let cardPhotoFrameWidth: CGFloat = 100
-    
     var location: StoreLocation
     var action: () -> Void
     
@@ -22,6 +20,7 @@ struct StoreLocationRow: View {
         Button(action: {
             self.action()
             
+            // animate the mask fill animation
             return withAnimation(.easeInOut(duration: StoreLocationRow.maskFillDuration)) {
                 self.maskFill = 1
             }
@@ -36,7 +35,7 @@ struct StoreLocationRow: View {
                         }
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: cardPhotoFrameWidth, height: cardPhotoFrameWidth)
+                        .frame(width: 100, height: 100)
                         .clipped()
                     
                     VStack(alignment: .leading) {
