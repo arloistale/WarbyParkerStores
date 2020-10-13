@@ -20,6 +20,13 @@ struct StoreLocationRow: View {
         Button(action: {
             self.action()
             
+            DispatchQueue.main.asyncAfter(deadline: .now() + StoreLocationRow.maskFillDuration) {
+                // reset the mask after finishing the animation
+                withAnimation(.easeInOut(duration: 0.25)) {
+                    self.maskFill = 0
+                }
+            }
+            
             // animate the mask fill animation
             return withAnimation(.easeInOut(duration: StoreLocationRow.maskFillDuration)) {
                 self.maskFill = 1
@@ -52,10 +59,8 @@ struct StoreLocationRow: View {
                 }
                 
                 // mask that animates in
-                Rectangle()
+                LeadingBarRectangle(fillValue: self.maskFill)
                     .fill(Color("MaskFill"))
-                    .scaleEffect(maskFill, anchor: .bottomTrailing)
-                    //.scaleEffect(x: maskFill, y: 1)
             }
             .background(Color("WholesomeBlue"))
             .cornerRadius(5)
