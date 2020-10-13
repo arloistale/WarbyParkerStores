@@ -12,7 +12,6 @@ struct StoreLocationsView: View {
     let topSpacerHeight: CGFloat = 50
     
     let fadeDuration: Double = 0.1
-    let maskFillDuration: Double = 1
     
     @ObservedObject var viewModel: StoreLocationsViewModel
     
@@ -25,17 +24,19 @@ struct StoreLocationsView: View {
                 .frame(height: topSpacerHeight)
             
             ZStack {
+                // show a list of store locations, and go into the
+                // detail once a location is clicked
                 ScrollView() {
                     LazyVStack {
                         ForEach(viewModel.data.locations) { location in
                             StoreLocationRow(location: location) {
                                 viewModel.setLocationForDetail(location: location)
                                 
-                                DispatchQueue.main.asyncAfter(deadline: .now() + fadeDuration + maskFillDuration) {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + fadeDuration + StoreLocationRow.maskFillDuration) {
                                     viewModel.showDetail()
                                 }
                                 
-                                return withAnimation(Animation.easeInOut(duration: fadeDuration).delay(maskFillDuration)) {
+                                return withAnimation(Animation.easeInOut(duration: fadeDuration).delay(StoreLocationRow.maskFillDuration)) {
                                     self.contentOpacity = 0
                                 }
                             }
