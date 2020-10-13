@@ -9,6 +9,8 @@ import SwiftUI
 import KingfisherSwiftUI
 
 struct StoreLocationRow: View {
+    static let maskFillDuration: Double = 1
+    
     let cardPhotoFrameWidth: CGFloat = 100
     
     var location: StoreLocation
@@ -17,11 +19,14 @@ struct StoreLocationRow: View {
     @State private var maskFill: CGFloat = 0
 
     var body: some View {
-        ZStack {
-            Button(action: {
-                self.action()
+        Button(action: {
+            self.action()
+            
+            return withAnimation(.easeInOut(duration: StoreLocationRow.maskFillDuration)) {
                 self.maskFill = 1
-            }) {
+            }
+        }) {
+            ZStack {
                 HStack {
                     KFImage(URL(string: "https:\(location.cmsContent.cardPhoto)"))
                         .cancelOnDisappear(true)
@@ -46,16 +51,16 @@ struct StoreLocationRow: View {
                     
                     Spacer()
                 }
-                .background(Color("WholesomeBlue"))
-                .cornerRadius(5)
-                .padding(.horizontal)
+                
+                // mask that animates in
+                Rectangle()
+                    .fill(Color("MaskFill"))
+                    .scaleEffect(maskFill, anchor: .bottomTrailing)
+                    //.scaleEffect(x: maskFill, y: 1)
             }
-                /*
-            // mask that animates in
-            Rectangle()
-                .fill(Color("MaskFill"))
-                .scaleEffect(maskFill)
-                .animation(.default)*/
+            .background(Color("WholesomeBlue"))
+            .cornerRadius(5)
+            .padding(.horizontal)
         }
     }
 }

@@ -71,11 +71,6 @@ struct StoreLocationDetail: View {
                 self.contentOffset = 0
             }
         }
-        .onDisappear() {
-            withAnimation(.spring()) {
-                self.contentOffset = 1500
-            }
-        }
     }
 }
 
