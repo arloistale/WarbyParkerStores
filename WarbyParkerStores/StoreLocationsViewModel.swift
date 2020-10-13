@@ -14,7 +14,8 @@ class StoreLocationsViewModel: ObservableObject {
     @Published var data = StoreLocationsData(locations: [])
     @Published var isLoading = false
     
-    @Published var selectedLocation: StoreLocation?
+    @Published var shouldShowDetail = false
+    @Published var locationForDetail: StoreLocation?
     
     private var subscriptions = Set<AnyCancellable>()
     
@@ -41,7 +42,20 @@ class StoreLocationsViewModel: ObservableObject {
             .store(in: &subscriptions)
     }
     
-    func selectLocation(location: StoreLocation) {
-        selectedLocation = location
+    func showDetail() {
+        guard locationForDetail != nil else {
+            print("Cannot show detail until location has been set")
+            return
+        }
+        
+        shouldShowDetail = true
+    }
+    
+    func hideDetail() {
+        shouldShowDetail = false
+    }
+    
+    func setLocationForDetail(location: StoreLocation) {
+        locationForDetail = location
     }
 }

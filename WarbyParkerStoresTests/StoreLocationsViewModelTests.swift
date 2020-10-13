@@ -10,7 +10,7 @@ import Combine
 
 class StoreLocationsViewModelTests: XCTestCase {
     
-    func testEmpty() throws {
+    func testLoadEmpty() throws {
         let viewModel = StoreLocationsViewModel(repository: StoreLocationsRepositoryMock())
         
         viewModel.load()
@@ -19,7 +19,7 @@ class StoreLocationsViewModelTests: XCTestCase {
         XCTAssert(viewModel.data.locations.count == 0)
     }
     
-    func testFailure() throws {
+    func testLoadFailure() throws {
         let repository = StoreLocationsRepositoryMock(mockPublisher: Fail(error: URLError(.badURL, userInfo: [NSURLErrorKey: ""])).eraseToAnyPublisher())
         let viewModel = StoreLocationsViewModel(repository: repository)
         
@@ -29,7 +29,7 @@ class StoreLocationsViewModelTests: XCTestCase {
         XCTAssert(viewModel.data.locations.count == 0)
     }
 
-    func testSuccess() throws {
+    func testLoadSuccess() throws {
         let repository = StoreLocationsRepositoryMock(mockPublisher: Just(StoreLocationsData(locations: [StoreLocation.example])).setFailureType(to: Error.self).eraseToAnyPublisher())
         let viewModel = StoreLocationsViewModel(repository: repository)
         
@@ -39,7 +39,7 @@ class StoreLocationsViewModelTests: XCTestCase {
         XCTAssert(viewModel.data.locations.count == 1)
     }
     
-    func testStalling() throws {
+    func testLoadStalling() throws {
         let repository = StoreLocationsRepositoryMock(mockPublisher: Empty(completeImmediately: false).setFailureType(to: Error.self).eraseToAnyPublisher())
         let viewModel = StoreLocationsViewModel(repository: repository)
         
@@ -49,12 +49,31 @@ class StoreLocationsViewModelTests: XCTestCase {
         XCTAssert(viewModel.data.locations.count == 0)
     }
     
-    func testSelecting() throws {
+    func testShowDetailFailure() throws {
         let viewModel = StoreLocationsViewModel(repository: StoreLocationsRepositoryMock())
         
-        viewModel.selectLocation(location: StoreLocation.example)
+        XCTAssert(viewModel.locationForDetail == nil)
         
-        XCTAssert(viewModel.selectedLocation!.id == StoreLocation.example.id)
+        // cannot show if detail location has not been set
+        viewModel.showDetail()
+        
+        XCTAssert(!viewModel.shouldShowDetail)
     }
+    
+    func testShowDetailSuccess() throws {
+        let viewModel = StoreLocationsViewModel(repository: StoreLocationsRepositoryMock())
+        
+        // need to first set the location before we show
+        viewModel.setLocationForDetail(location: StoreLocation.example)
 
+        XCTAssert(viewModel.locationForDetail!.id == StoreLocation.example.id)
+        
+        viewModel.showDetail()
+        
+        XCTAssert(viewModel.shouldShowDetail)
+        
+        viewModel.hideDetail()
+        
+        XCTAssert(!viewModel.shouldShowDetail)
+    }
 }

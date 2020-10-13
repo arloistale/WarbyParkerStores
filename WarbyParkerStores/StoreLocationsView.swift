@@ -18,7 +18,6 @@ struct StoreLocationsView: View {
     
     @State private var contentOffset: CGFloat = -1500
     @State private var contentOpacity: Double = 1
-    @State private var showModal = false
     
     var body: some View {
         VStack {
@@ -30,10 +29,10 @@ struct StoreLocationsView: View {
                     LazyVStack {
                         ForEach(viewModel.data.locations) { location in
                             StoreLocationRow(location: location) {
-                                viewModel.selectLocation(location: location)
+                                viewModel.setLocationForDetail(location: location)
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + fadeDuration + maskFillDuration) {
-                                    self.showModal = true
+                                    viewModel.showDetail()
                                 }
                                 
                                 return withAnimation(Animation.easeInOut(duration: fadeDuration).delay(maskFillDuration)) {
@@ -52,9 +51,9 @@ struct StoreLocationsView: View {
                 
                 // the detail view opens once the button is clicked
                 // and the mask fill has completed
-                if showModal {
-                    StoreLocationDetail(location: viewModel.selectedLocation!) {
-                        self.showModal = false
+                if viewModel.shouldShowDetail {
+                    StoreLocationDetail(location: viewModel.locationForDetail!) {
+                        viewModel.hideDetail()
                         
                         return withAnimation(Animation.easeInOut(duration: fadeDuration)) {
                             self.contentOpacity = 1
