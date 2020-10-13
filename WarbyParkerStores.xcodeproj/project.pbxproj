@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22103EEE253602F40007477C /* StoreLocationsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22103EED253602F40007477C /* StoreLocationsList.swift */; };
 		221EE8A4253172EC005FD9FF /* WarbyParkerStoresApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221EE8A3253172EC005FD9FF /* WarbyParkerStoresApp.swift */; };
 		221EE8A6253172EC005FD9FF /* StoreLocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221EE8A5253172EC005FD9FF /* StoreLocationsView.swift */; };
 		221EE8A8253172ED005FD9FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 221EE8A7253172ED005FD9FF /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22103EED253602F40007477C /* StoreLocationsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocationsList.swift; sourceTree = "<group>"; };
 		221EE8A0253172EC005FD9FF /* WarbyParkerStores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WarbyParkerStores.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		221EE8A3253172EC005FD9FF /* WarbyParkerStoresApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarbyParkerStoresApp.swift; sourceTree = "<group>"; };
 		221EE8A5253172EC005FD9FF /* StoreLocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocationsView.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				221EE8A3253172EC005FD9FF /* WarbyParkerStoresApp.swift */,
 				221EE8A5253172EC005FD9FF /* StoreLocationsView.swift */,
+				22103EED253602F40007477C /* StoreLocationsList.swift */,
 				22790C512532AB7300EC4EC7 /* StoreLocationRow.swift */,
 				22790C5C2532B39500EC4EC7 /* StoreLocationDetail.swift */,
 				22CF273B2533D11300FA1966 /* StoreLocationsViewModel.swift */,
@@ -310,6 +313,7 @@
 				221EE8A6253172EC005FD9FF /* StoreLocationsView.swift in Sources */,
 				22CF273C2533D11300FA1966 /* StoreLocationsViewModel.swift in Sources */,
 				22790C522532AB7300EC4EC7 /* StoreLocationRow.swift in Sources */,
+				22103EEE253602F40007477C /* StoreLocationsList.swift in Sources */,
 				22790C5D2532B39500EC4EC7 /* StoreLocationDetail.swift in Sources */,
 				221EE8A4253172EC005FD9FF /* WarbyParkerStoresApp.swift in Sources */,
 				225600C025358D3300BF905F /* LeadingBarRectangle.swift in Sources */,
