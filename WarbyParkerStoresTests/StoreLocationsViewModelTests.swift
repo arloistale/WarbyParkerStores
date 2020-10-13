@@ -48,12 +48,13 @@ class StoreLocationsViewModelTests: XCTestCase {
         XCTAssert(viewModel.isLoading)
         XCTAssert(viewModel.data.locations.count == 0)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testSelecting() throws {
+        let viewModel = StoreLocationsViewModel(repository: StoreLocationsRepositoryMock())
+        
+        viewModel.selectLocation(location: StoreLocation.example)
+        
+        XCTAssert(viewModel.selectedLocation!.id == StoreLocation.example.id)
     }
 
 }

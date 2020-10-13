@@ -10,45 +10,60 @@ import KingfisherSwiftUI
 
 struct StoreLocationRow: View {
     let cardPhotoFrameWidth: CGFloat = 100
-
-    var location: StoreLocation
     
+    var location: StoreLocation
+    var action: () -> Void
+    
+    @State private var maskFill: CGFloat = 0
+
     var body: some View {
-        NavigationLink(destination: StoreLocationDetail(location: location)) {
-            HStack {
-                KFImage(URL(string: "https:\(location.cmsContent.cardPhoto)"))
-                    .cancelOnDisappear(true)
-                    .placeholder {
-                        Rectangle()
-                            .fill(Color("PlaceholderStamp"))
-                    }
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: cardPhotoFrameWidth, height: cardPhotoFrameWidth)
-                    .clipped()
-                
-                VStack(alignment: .leading) {
-                    Text(location.name)
-                        .font(.headline)
-                        .foregroundColor(Color.white)
+        ZStack {
+            Button(action: {
+                self.action()
+                self.maskFill = 1
+            }) {
+                HStack {
+                    KFImage(URL(string: "https:\(location.cmsContent.cardPhoto)"))
+                        .cancelOnDisappear(true)
+                        .placeholder {
+                            Rectangle()
+                                .fill(Color("PlaceholderStamp"))
+                        }
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: cardPhotoFrameWidth, height: cardPhotoFrameWidth)
+                        .clipped()
                     
-                    Text("\(location.address.streetAddress)\n\(location.address.locality), \(location.address.regionCode) \(location.address.postalCode)")
-                        .font(.caption)
-                        .foregroundColor(Color.white)
+                    VStack(alignment: .leading) {
+                        Text(location.name)
+                            .font(.headline)
+                            .foregroundColor(Color.white)
+                        
+                        Text("\(location.address.streetAddress)\n\(location.address.locality), \(location.address.regionCode) \(location.address.postalCode)")
+                            .font(.caption)
+                            .foregroundColor(Color.white)
+                    }
+                    
+                    Spacer()
                 }
-                
-                Spacer()
+                .background(Color("WholesomeBlue"))
+                .cornerRadius(5)
+                .padding(.horizontal)
             }
-            .buttonStyle(PlainButtonStyle())
-            .background(Color("WholesomeBlue"))
-            .cornerRadius(5)
-            .padding(.horizontal)
+                /*
+            // mask that animates in
+            Rectangle()
+                .fill(Color("MaskFill"))
+                .scaleEffect(maskFill)
+                .animation(.default)*/
         }
     }
 }
 
 struct StoreLocationRow_Previews: PreviewProvider {
     static var previews: some View {
-        StoreLocationRow(location: StoreLocation.example)
+        StoreLocationRow(location: StoreLocation.example) {
+            
+        }
     }
 }

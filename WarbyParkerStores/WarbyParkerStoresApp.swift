@@ -10,6 +10,8 @@ import class Kingfisher.ImageCache
 
 @main
 struct WarbyParkerStoresApp: App {
+    let storeLocationsViewModel = StoreLocationsViewModel(repository: StoreLocationsRepositoryImpl())
+    
     init() {
         let cache = ImageCache.default
         cache.clearMemoryCache()
@@ -18,7 +20,7 @@ struct WarbyParkerStoresApp: App {
     
     var body: some Scene {
         WindowGroup {
-            AppView()
+            StoreLocationsView(viewModel: storeLocationsViewModel)
         }
     }
 }

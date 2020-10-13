@@ -14,6 +14,8 @@ class StoreLocationsViewModel: ObservableObject {
     @Published var data = StoreLocationsData(locations: [])
     @Published var isLoading = false
     
+    @Published var selectedLocation: StoreLocation?
+    
     private var subscriptions = Set<AnyCancellable>()
     
     init(repository: StoreLocationsRepository) {
@@ -37,5 +39,9 @@ class StoreLocationsViewModel: ObservableObject {
                 self.data = data
             })
             .store(in: &subscriptions)
+    }
+    
+    func selectLocation(location: StoreLocation) {
+        selectedLocation = location
     }
 }
