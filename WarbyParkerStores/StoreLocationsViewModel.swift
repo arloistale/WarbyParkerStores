@@ -46,22 +46,24 @@ class StoreLocationsViewModel: ObservableObject {
             .store(in: &subscriptions)
     }
     
-    func showList() {
+    func showList(delay: Double = 0) {
+        listTransitionDelay = delay
         shouldShowList = true
     }
     
-    func hideList(delay: Double) {
-        shouldShowList = false
+    func hideList(delay: Double = 0) {
         listTransitionDelay = delay
+        shouldShowList = false
     }
     
-    func showDetail(location: StoreLocation, delay: Double) {
+    func showDetail(location: StoreLocation, delay: Double = 0) {
+        detailTransitionDelay = delay
         locationForDetail = location
         shouldShowDetail = true
-        detailTransitionDelay = delay
     }
     
-    func hideDetail() {
+    func hideDetail(delay: Double = 0) {
+        detailTransitionDelay = delay
         shouldShowDetail = false
     }
 }

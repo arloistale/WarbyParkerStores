@@ -9,37 +9,38 @@ import SwiftUI
 import Combine
 
 struct StoreLocationsView: View {
+    static let listFadeDuration: Double = 0.1
+    
     @ObservedObject var viewModel: StoreLocationsViewModel
     
+    @State private var isShowing = false
+    
     var body: some View {
-        VStack {
-            Spacer()
-                .frame(height: 50)
-            
-            ZStack {
-                if viewModel.shouldShowList {
+        ZStack {
+            if isShowing {
+                ZStack {
                     StoreLocationsList(viewModel: viewModel) { location in
                         viewModel.hideList(delay: StoreLocationRow.maskFillDuration)
-                        
-                        viewModel.showDetail(location: location, delay: StoreLocationRow.maskFillDuration + StoreLocationsList.listFadeDuration)
-                    }
-                }
 
-                if viewModel.isLoading {
-                    ProgressView()
-                }
-                
-                // show the detail view once a store location is clicked
-                if viewModel.shouldShowDetail {
-                    StoreLocationDetail(viewModel: viewModel, location: viewModel.locationForDetail!) {
+                        viewModel.showDetail(location: location, delay: StoreLocationRow.maskFillDuration + Self.listFadeDuration)
+                    }
+                    
+                    // show the detail view once a store location is clicked
+                    StoreLocationDetail(viewModel: viewModel) {
                         viewModel.hideDetail()
+                        viewModel.showList(delay: 0.5)
                     }
                 }
+                .transition(.slide)
             }
         }
         .onAppear {
             viewModel.load()
             viewModel.showList()
+            
+            return withAnimation(.spring()) {
+                self.isShowing = true;
+            }
         }
     }
 }

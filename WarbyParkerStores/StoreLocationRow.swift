@@ -20,7 +20,7 @@ struct StoreLocationRow: View {
         Button(action: {
             self.action()
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + StoreLocationRow.maskFillDuration) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + Self.maskFillDuration) {
                 // reset the mask after finishing the animation
                 withAnimation(Animation.easeInOut(duration: 0.25).delay(0.25)) {
                     self.maskFill = 0
