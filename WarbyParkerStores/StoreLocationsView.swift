@@ -9,8 +9,6 @@ import SwiftUI
 import Combine
 
 struct StoreLocationsView: View {
-    static let listFadeDuration: Double = 0.1
-    
     @ObservedObject var viewModel: StoreLocationsViewModel
     
     @State private var isShowing = false
@@ -22,7 +20,7 @@ struct StoreLocationsView: View {
                     StoreLocationsList(viewModel: viewModel) { location in
                         viewModel.hideList(delay: StoreLocationRow.maskFillDuration)
 
-                        viewModel.showDetail(location: location, delay: StoreLocationRow.maskFillDuration + Self.listFadeDuration)
+                        viewModel.showDetail(location: location, delay: StoreLocationRow.maskFillDuration + StoreLocationsList.fadeDuration)
                     }
                     
                     // show the detail view once a store location is clicked
@@ -31,14 +29,14 @@ struct StoreLocationsView: View {
                         viewModel.showList(delay: 0.5)
                     }
                 }
-                .transition(.slide)
+                .transition(.move(edge: .bottom))
             }
         }
         .onAppear {
             viewModel.load()
             viewModel.showList()
             
-            return withAnimation(.spring()) {
+            return withAnimation(.easeInOut(duration: 10)) {
                 self.isShowing = true;
             }
         }

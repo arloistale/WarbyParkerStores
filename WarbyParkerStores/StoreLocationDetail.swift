@@ -22,7 +22,7 @@ struct StoreLocationDetail: View {
     
     var body: some View {
         ZStack {
-            if self.isShowing && location != nil {
+            if self.isShowing {
                 VStack {
                     Spacer()
                         .frame(height: 50)

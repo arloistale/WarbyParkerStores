@@ -9,7 +9,7 @@ import SwiftUI
 import KingfisherSwiftUI
 
 struct StoreLocationRow: View {
-    static let maskFillDuration: Double = 1
+    static let maskFillDuration: Double = 0.5
     
     var location: StoreLocation
     var action: () -> Void

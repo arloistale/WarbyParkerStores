@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct StoreLocationsList: View {
+    static let fadeDuration: Double = 0.1
+    
     @ObservedObject var viewModel: StoreLocationsViewModel
     
     var action: (StoreLocation) -> Void
@@ -44,7 +46,7 @@ struct StoreLocationsList: View {
         }
         .onReceive(viewModel.$shouldShowList) { value in
             // animate the detail in from the bottom edge
-            withAnimation(Animation.easeInOut(duration: 0.1).delay(viewModel.listTransitionDelay)) {
+            withAnimation(Animation.easeInOut(duration: Self.fadeDuration).delay(viewModel.listTransitionDelay)) {
                 self.isShowing = value
             }
         }
