@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Kingfisher",
+        "repositoryURL": "https://github.com/onevcat/Kingfisher.git",
+        "state": {
+          "branch": null,
+          "revision": "1aa9889e5f7d9d92acda014eea9cdc7338d3d7d6",
+          "version": "5.15.6"
+        }
+      },
+      {
+        "package": "NavigationStack",
+        "repositoryURL": "https://github.com/matteopuc/swiftui-navigation-stack.git",
+        "state": {
+          "branch": "master",
+          "revision": "24eed8c87c6635e6afbeb33a5695c11a6f9937ea",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

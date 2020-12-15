@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MenuItemDetail: View {
+struct StoreLocationDetail: View {
     var order: Order
     
     var item: MenuItem
@@ -42,7 +42,7 @@ struct MenuItemDetail: View {
 struct MenuItemDetail_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            MenuItemDetail(order: Order(), item: MenuItem.example)
+            StoreLocationDetail(order: Order(), item: MenuItem.example)
         }
     }
 }

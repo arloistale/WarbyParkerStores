@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MenuItemRow: View {
+struct StoreLocationRow: View {
     static let colors: [String: Color] = ["D": .purple, "G": .black, "N": .red, "S": .blue, "V": .green]
     
     var order: Order
@@ -46,6 +46,6 @@ struct MenuItemRow: View {
 
 struct ItemRow_Previews: PreviewProvider {
     static var previews: some View {
-        MenuItemRow(order: Order(), item: MenuItem.example)
+        StoreLocationRow(order: Order(), item: MenuItem.example)
     }
 }

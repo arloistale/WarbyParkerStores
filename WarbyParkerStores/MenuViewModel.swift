@@ -7,19 +7,21 @@
 
 import Foundation
 
-class MenuViewModel: ObservableObject {
-    var repository: MenuRepository
+class StoreLocationsViewModel: ObservableObject {
+    let repository: StoreLocationsRepository
     
-    @Published var data: MenuData
+    @Published var data = StoreLocationData(sections: [])
+    @Published var isLoading = false
     
-    init(repository: MenuRepository) {
+    init(repository: StoreLocationsRepository) {
         self.repository = repository
-        self.data = MenuData(sections: [])
     }
     
     func load() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.data = self.repository.fetchMenu()
+        isLoading = true
+        repository.fetchData { data in
+            self.isLoading = false
+            self.data = data
         }
     }
 }
